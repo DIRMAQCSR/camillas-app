@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Menú Principal{% endblock %}
+{% block content %}
+<h2 class="text-center mb-4">Menú Principal</h2>
+<div class="list-group">
+    <a href="/registrar" class="list-group-item list-group-item-action">Registrar camilla</a>
+    <a href="/mantenimiento" class="list-group-item list-group-item-action">Ingresar camilla a mantenimiento</a>
+    <a href="/cerrar-mantenimiento" class="list-group-item list-group-item-action">Cerrar mantenimiento</a>
+    <a href="/camillas" class="list-group-item list-group-item-action">Ver camillas registradas</a>
+    <a href="/dar-baja" class="list-group-item list-group-item-action">Dar de baja una camilla</a>
+    <a href="/historial-bajas" class="list-group-item list-group-item-action">Ver historial de bajas</a>
+</div>
+{% endblock %}

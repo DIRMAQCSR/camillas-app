@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Cerrar Mantenimiento{% endblock %}
+{% block content %}
+<h2 class="mb-4">Cerrar Mantenimiento</h2>
+{% if mensaje %}<div class="alert alert-info">{{ mensaje }}</div>{% endif %}
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Seleccione camilla en mantenimiento</label>
+        <select name="camilla_id" class="form-select" required>
+            {% for camilla in camillas %}
+                <option value="{{ camilla.id }}">{{ camilla.placa }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Cerrar</button>
+    <a href="/menu" class="btn btn-secondary">Volver</a>
+</form>
+{% endblock %}

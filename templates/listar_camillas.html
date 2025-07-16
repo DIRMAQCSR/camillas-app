@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Camillas Registradas{% endblock %}
+{% block content %}
+<h2 class="mb-4">Camillas Registradas</h2>
+<table class="table table-striped">
+    <thead><tr><th>ID</th><th>Placa</th><th>Estado</th><th>Motivo Baja</th></tr></thead>
+    <tbody>
+    {% for camilla in camillas %}
+        <tr>
+            <td>{{ camilla.id }}</td>
+            <td>{{ camilla.placa }}</td>
+            <td>{{ camilla.estado }}</td>
+            <td>{{ camilla.motivo_baja or '' }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="/menu" class="btn btn-secondary">Volver al menú</a>
+{% endblock %}

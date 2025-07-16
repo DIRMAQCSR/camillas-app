@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Ingresar a Mantenimiento{% endblock %}
+{% block content %}
+<h2 class="mb-4">Ingresar Camilla a Mantenimiento</h2>
+{% if mensaje %}<div class="alert alert-info">{{ mensaje }}</div>{% endif %}
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Seleccione una camilla</label>
+        <select name="camilla_id" class="form-select" required>
+            {% for camilla in camillas %}
+                <option value="{{ camilla.id }}">{{ camilla.placa }} ({{ camilla.estado }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Descripción del mantenimiento</label>
+        <textarea name="descripcion" class="form-control" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+    <a href="/menu" class="btn btn-secondary">Volver</a>
+</form>
+{% endblock %}

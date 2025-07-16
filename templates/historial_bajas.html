@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Historial de Bajas{% endblock %}
+{% block content %}
+<h2 class="mb-4">Historial de Bajas</h2>
+<table class="table table-striped">
+    <thead><tr><th>Placa</th><th>Fecha de Baja</th><th>Motivo</th></tr></thead>
+    <tbody>
+    {% for baja in bajas %}
+        <tr>
+            <td>{{ baja.camilla.placa }}</td>
+            <td>{{ baja.fecha.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ baja.motivo }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="/menu" class="btn btn-secondary">Volver al menú</a>
+{% endblock %}

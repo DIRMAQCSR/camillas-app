@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Dar de Baja Camilla{% endblock %}
+{% block content %}
+<h2 class="mb-4">Dar de Baja una Camilla</h2>
+{% if mensaje %}<div class="alert alert-info">{{ mensaje }}</div>{% endif %}
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Seleccione una camilla</label>
+        <select name="camilla_id" class="form-select" required>
+            {% for camilla in camillas %}
+                <option value="{{ camilla.id }}">{{ camilla.placa }} ({{ camilla.estado }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Motivo de baja (opcional)</label>
+        <textarea name="motivo" rows="3" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-danger">Dar de baja</button>
+    <a href="/menu" class="btn btn-secondary">Volver</a>
+</form>
+{% endblock %}
